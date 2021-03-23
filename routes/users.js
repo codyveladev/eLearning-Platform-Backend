@@ -28,37 +28,35 @@ users.get("/all", async (req, res) => {
  */
 users.post("/register", async (req, res) => {
   try {
+    //Get the user info from the request body
     const newUserInfo = req.body;
+    console.log(newUserInfo); 
 
     //Encrypt password before storing
-    const encryptedPassword = await encryptPassword(newUserInfo.password);
-
-    const createdUser = {
-      firstName: newUserInfo.firstName,
-      lastName: newUserInfo.lastName,
-      email: newUserInfo.email,
-      userName: newUserInfo.userName,
-      password: encryptedPassword,
-    };
+    newUserInfo.password = await encryptPassword(newUserInfo.password);
 
     try {
-      const userToStore = await userModels.create(createdUser);
-
+      const userToStore = await userModels.create(newUserInfo);
+      console.log(userToStore)
+      userToStore.save(); 
       if (userToStore) {
         res.send(`User with ID ${userToStore._id} has been created!`);
-        await userToStore.save(); 
-      } else {
-        res.send("ERROR: Something happened with registration!");
       }
-    } catch (e) {
-      if (e) {
-        res.send(e);
-      }
+    } catch (error) {
+      res.send(error);
+      console.log(error)
     }
   } catch (e) {
     res.status(201);
   }
 });
+
+/**
+ * @type GET
+ * @route /users/user/:id
+ * @desc Finds a user by ID in the database and returns the information.
+ */
+users.get("/user/:id", async (req, res) => {});
 
 //Helper Functions
 const encryptPassword = async (password) => {
@@ -67,4 +65,5 @@ const encryptPassword = async (password) => {
 
   return hashedPassword;
 };
+
 module.exports = users;
