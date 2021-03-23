@@ -1,5 +1,6 @@
 const express = require("express");
 const users = express.Router();
+const bcrypt = require("bcrypt");
 
 //Models
 const userModels = require("../Models/User");
@@ -28,20 +29,42 @@ users.get("/all", async (req, res) => {
 users.post("/register", async (req, res) => {
   try {
     const newUserInfo = req.body;
-    const createdUser = await userModels.create(newUserInfo);
 
-    if (createdUser) {
-      res.send(createdUser);
+    //Encrypt password before storing
+    const encryptedPassword = await encryptPassword(newUserInfo.password);
+
+    const createdUser = {
+      firstName: newUserInfo.firstName,
+      lastName: newUserInfo.lastName,
+      email: newUserInfo.email,
+      userName: newUserInfo.userName,
+      password: encryptedPassword,
+    };
+
+    try {
+      const userToStore = await userModels.create(createdUser);
+
+      if (userToStore) {
+        res.send(`User with ID ${userToStore._id} has been created!`);
+        await userToStore.save(); 
+      } else {
+        res.send("ERROR: Something happened with registration!");
+      }
+    } catch (e) {
+      if (e) {
+        res.send(e);
+      }
     }
-  } catch (e) {}
+  } catch (e) {
+    res.status(201);
+  }
 });
 
+//Helper Functions
+const encryptPassword = async (password) => {
+  const salt = await bcrypt.genSalt(10);
+  const hashedPassword = await bcrypt.hash(password, salt);
 
-//Helper Functions 
-const encrptPassword = (password) => {
-   
-   return passwordEncrpted;
-
-}
-
+  return hashedPassword;
+};
 module.exports = users;

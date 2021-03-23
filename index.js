@@ -22,6 +22,7 @@ let intializeConnection = async () => {
     await mongoose.connect(process.env.MONGO_CONNECT_KEY, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
+      useCreateIndex: true, 
     });
 
     //Check if the connection was successful and display message.
