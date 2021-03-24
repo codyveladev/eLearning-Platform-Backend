@@ -1,5 +1,8 @@
 const mongoose = require("mongoose");
 
+//Get Course Model
+const courseSchema = require("../Models/Course");
+
 const userModel = mongoose.model(
   "users",
   new mongoose.Schema({
@@ -27,7 +30,12 @@ const userModel = mongoose.model(
     password: {
       type: String,
       required: true,
-    }
+    },
+    isInstructor: Boolean,
+    courses: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Course"
+    }],
   })
 );
 

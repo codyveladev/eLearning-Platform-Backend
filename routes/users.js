@@ -56,7 +56,7 @@ users.get("/login", async (req, res) => {
 users.post("/register", async (req, res) => {
     //Get the user info from the request body
     const newUserInfo = req.body;
-    console.log(newUserInfo);
+    newUserInfo.isInstructor = false; 
 
     //Encrypt password before storing
     newUserInfo.password = await encryptPassword(newUserInfo.password);

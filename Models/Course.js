@@ -6,8 +6,11 @@ const courseModel = mongoose.model(
     title: String,
     video_link: String,
     description: String,
-    instructor: String, //Need to make this a connection to the instructor schema 
-    quiz: String, //Need to make this a connection to quiz schema
+    instructor: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true, 
+    },
   })
 );
 

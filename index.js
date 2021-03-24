@@ -8,6 +8,7 @@ const cors = require("cors");
 //Routes
 const users = require("./routes/users");
 const courses = require("./routes/courses");
+const instructors = require("./routes/instructors")
 
 //Start on localhost
 app.use(cors());
@@ -28,9 +29,8 @@ let intializeConnection = async () => {
     //Check if the connection was successful and display message.
     if (database) {
       console.log("Database Status: Connected");
-    } else {
-      console.log("Not connected");
     }
+    
   } catch (error) {
     if (error) {
       console.log(error);
@@ -43,6 +43,8 @@ intializeConnection().then(() => {
   //Include the routes
   app.use("/users", users);
   app.use("/courses", courses);
+  app.use("/instructors", instructors);
+  
   app.get("/", (req, res) => {
     res.send("hello world");
   });
