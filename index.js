@@ -6,9 +6,9 @@ require("dotenv").config();
 const cors = require("cors");
 
 //Routes
-const users = require("./routes/users");
-const courses = require("./routes/courses");
-const instructors = require("./routes/instructors")
+const users = require("./Routes/users");
+const courses = require("./Routes/courses");
+const instructors = require("./Routes/instructors")
 
 //Start on localhost
 app.use(cors());

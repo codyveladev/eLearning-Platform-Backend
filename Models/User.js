@@ -1,7 +1,5 @@
 const mongoose = require("mongoose");
 
-//Get Course Model
-const courseSchema = require("../Models/Course");
 
 const userSchema = new mongoose.Schema({
   firstName: {
