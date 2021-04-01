@@ -4,9 +4,6 @@
 This is the semester project for CS4398, this project is create a web app similar to udemy or coursera.
 In this repository all of the server side code is stored here. This is a node.js server with express as the middleware. The database being used is Mongodb. The frontend of this code can be found in the repository `eLearning-Platform-frontend` 
 
-## Class Diagram 
-![ClassDiagram](./Img/ClassDiagram1.png)
-
 ## Cloning Instructions
 1. Fork the repository
 2. Open in terminal 
@@ -19,4 +16,9 @@ In this repository all of the server side code is stored here. This is a node.js
 - This variable is pulled from the .env file 
 - To intialize the variable create the .env file and add `MONGO_CONNECT_KEY=<yourkey>`
 - I will have to make users on mongodb and allow for you to connect... reach out if needed. 
+
+## Class Diagram 
+![ClassDiagram](./Img/ClassDiagram1.png)
+
+
  
