@@ -30,7 +30,7 @@ let intializeConnection = async () => {
     if (database) {
       console.log("Database Status: Connected");
     }
-    
+
   } catch (error) {
     if (error) {
       console.log(error);
@@ -50,6 +50,6 @@ intializeConnection().then(() => {
   });
 
   app.listen(PORT, () => {
-    console.log(`Server started on ${PORT}`);
+    console.log(`Development server started on PORT ${PORT}`);
   });
 });

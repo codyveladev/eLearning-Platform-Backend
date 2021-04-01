@@ -54,25 +54,41 @@ users.get("/login", async (req, res) => {
  * @desc Registers one user into the database
  */
 users.post("/register", async (req, res) => {
-    //Get the user info from the request body
-    const newUserInfo = req.body;
-    newUserInfo.isInstructor = false; 
+  //Get the user info from the request body
+  const newUserInfo = req.body;
+  newUserInfo.isInstructor = false;
 
-    //Encrypt password before storing
-    newUserInfo.password = await encryptPassword(newUserInfo.password);
+  //Check if the username already exists
+  let foundByUserName = await userModels.findOne({
+    userName: newUserInfo.userName,
+  });
+  if (foundByUserName) {
+    res.status(409).send("Username already exists...");
+    console.log("Username already exists...");
+    return;
+  }
 
-    try {
-      const userToStore = await userModels.create(newUserInfo);
+  //check if the email already exists
+  let foundByEmail = await userModels.findOne({ email: newUserInfo.email });
+  if (foundByEmail) {
+    res.status(409).send("Email already in use...");
+    console.log("Email already in use...");
+    return;
+  }
 
-      userToStore.save();
-      if (userToStore) {
-        res.send(`User with ID ${userToStore._id} has been created!`);
-      }
-    } catch (error) {
-      res.send(error);
-      console.log(error);
+  //Encrypt password before storing
+  newUserInfo.password = await encryptPassword(newUserInfo.password);
+
+  try {
+    const userToStore = await userModels.create(newUserInfo);
+    userToStore.save();
+    if (userToStore) {
+      res.send(`User with ID ${userToStore._id} has been created!`);
     }
-
+  } catch (error) {
+    res.send(error);
+    console.log(error);
+  }
 });
 
 /**
@@ -88,7 +104,7 @@ users.get("/user/:id", async (req, res) => {
     //Find the user in the database given the ID
     let foundUser = await userModels.findOne({ _id: userId });
 
-    console.log(typeof(foundUser.courses[0]))
+    console.log(typeof foundUser.courses[0]);
 
     //Only send 3 fields omitting email, password and ID
     let userInformationToSend = {
@@ -103,8 +119,6 @@ users.get("/user/:id", async (req, res) => {
     if (e) res.send("user not found...");
   }
 });
-
-
 
 //Helper Functions
 const encryptPassword = async (password) => {

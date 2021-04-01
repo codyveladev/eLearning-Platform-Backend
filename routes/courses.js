@@ -60,11 +60,12 @@ courses.get("/all", async (req, res) => {
  * @desc finds a course given an id in the database.
  */
 courses.get("/course?", async (req, res) => {
-  console.log(req.query);
   try {
     let foundCourse = await (
       await courseModel.findOne({ title: { $regex: req.query.title } })
-    ).populated("instructor");
+    ).populate("instructor");
+    
+    res.send(foundCourse);
   } catch (error) {
     if (error) res.send(error);
   }
