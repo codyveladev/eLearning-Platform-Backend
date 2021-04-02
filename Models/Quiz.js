@@ -1,12 +1,9 @@
 const mongoose = require("mongoose");
 
 const quizSchema = new mongoose.Schema({
-  questions: {
-    type: Array,
-  },
-  answers: {
-    type: Array,
-  },
+  questions: [{ type: String, required: true }],
+  answers: [[{ type: String, required: true }]],
+  correctAnswers: [{ type: String, required: true }],
   course: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Course",

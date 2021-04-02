@@ -44,7 +44,6 @@ describe("User", () => {
     });
     it("Return All Users", async () => {
       let listOfUsers = await userModel.find();
-      console.log(typeof(listOfUsers))
       expect(listOfUsers).toBeDefined();
 
 
@@ -54,10 +53,8 @@ describe("User", () => {
       let foundUser = await userModel.findOne({_id: id})
 
       expect(foundUser).toBeDefined()
-      expect(foundUser.firstName).toMatch("Cody")
     })
     afterAll(async () => {
-        console.log("HIT")
         userModel.deleteMany()
         await mongoose.connection.close(); 
     })
