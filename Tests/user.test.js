@@ -49,12 +49,6 @@ describe("User", () => {
     let listOfUsers = await userModel.find();
     expect(listOfUsers).toBeDefined();
   });
-  it("Find user by ID", async () => {
-    let id = "605b90cefc71acf3f126fdb9";
-    let foundUser = await userModel.findOne({ _id: id });
-
-    expect(foundUser).toBeDefined();
-  });
   afterAll(async () => {
     userModel.deleteMany();
     await mongoose.connection.close();
