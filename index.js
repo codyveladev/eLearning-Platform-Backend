@@ -2,17 +2,22 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 
+//For the connect key
 require("dotenv").config();
+//Allow cross orgin requests
 const cors = require("cors");
+app.use(cors());
+
+//Allow for express to use JSON
+app.use(express.json());
 
 //Routes
 const users = require("./Routes/users");
 const courses = require("./Routes/courses");
-const instructors = require("./Routes/instructors")
+const quizzes = require("./Routes/quizzes");
+const instructors = require("./Routes/instructors");
 
-//Start on localhost
-app.use(cors());
-app.use(express.json());
+//Port that will be started on.
 const PORT = 8080;
 
 //Connect to mongodb
@@ -30,7 +35,6 @@ let intializeConnection = async () => {
     if (database) {
       console.log("Database Status: Connected");
     }
-
   } catch (error) {
     if (error) {
       console.log(error);
@@ -43,8 +47,9 @@ intializeConnection().then(() => {
   //Include the routes
   app.use("/users", users);
   app.use("/courses", courses);
+  app.use("/quizzes", quizzes);
   app.use("/instructors", instructors);
-  
+
   app.get("/", (req, res) => {
     res.send("hello world");
   });

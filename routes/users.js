@@ -104,19 +104,18 @@ users.get("/user/:id", async (req, res) => {
     //Find the user in the database given the ID
     let foundUser = await userModels.findOne({ _id: userId });
 
-    console.log(typeof foundUser.courses[0]);
-
     //Only send 3 fields omitting email, password and ID
     let userInformationToSend = {
       firstName: foundUser.firstName,
       lastName: foundUser.lastName,
       userName: foundUser.userName,
+      courses: foundUser.courses
     };
 
     //Send the information
     res.send(userInformationToSend);
   } catch (e) {
-    if (e) res.send("user not found...");
+    if (e) res.status(404).send("User not found...");
   }
 });
 
