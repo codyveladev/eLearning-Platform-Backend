@@ -14,7 +14,7 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
-      MONGo_CONNECT_KEY: ${{secrets.MONGO_CONNECT_KEY}}
+      MONGO_CONNECT_KEY: ${{secrets.MONGO_CONNECT_KEY}}
 
     strategy:
       matrix:
