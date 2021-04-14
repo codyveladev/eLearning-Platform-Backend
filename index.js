@@ -1,12 +1,12 @@
-import express from "express";
-import dotenv from "dotenv";
-import colors from "colors";
-import connectDB from "./config/db.js";
+const express = require("express");
+const dotenv = require("dotenv");
+const colors = require("colors");
+const connectDB = require("./config/db");
 
 //For the connect key
 dotenv.config();
 //Allow cross orgin requests
-import cors from "cors";
+const cors = require("cors");
 const app = express();
 app.use(cors());
 
@@ -14,10 +14,10 @@ app.use(cors());
 app.use(express.json());
 
 //Routes
-import users from "./routes/users.js";
-import courses from "./routes/courses.js";
-import quizzes from "./routes/quizzes.js";
-import instructors from "./routes/instructors.js";
+const users = require("./routes/users");
+const courses = require("./routes/courses");
+const quizzes = require("./routes/quizzes");
+const instructors = require("./routes/instructors");
 
 //Port that will be started on.
 const PORT = 8080;

@@ -2,4 +2,4 @@ const config = {
   preset: "@shelf/jest-mongodb",
 };
 
-export default config
+module.exports = config;

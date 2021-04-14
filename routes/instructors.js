@@ -1,9 +1,9 @@
-import express from "express";
+const express = require("express");
 const instructors = express.Router();
-import bcrypt from "bcrypt";
+const bcrypt = require("bcrypt");
 
 //Models
-import userModels from "../models/User.js";
+const userModels = require("../models/User.js");
 
 /**
  * @type POST
@@ -28,7 +28,6 @@ instructors.post("/register", async (req, res) => {
   }
 });
 
-
 //Helper Functions
 const encryptPassword = async (password) => {
   const salt = await bcrypt.genSalt(10);
@@ -37,4 +36,4 @@ const encryptPassword = async (password) => {
   return hashedPassword;
 };
 
-export default instructors;
+module.exports = instructors;

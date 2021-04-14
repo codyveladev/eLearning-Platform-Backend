@@ -1,9 +1,8 @@
-import express from "express"
+const express = require("express");
 const users = express.Router();
-import bcrypt  from "bcrypt"
-
+const bcrypt = require("bcrypt");
 //Models
-import userModels from "../models/User.js"
+const userModels = require("../models/User.js");
 
 /**
  * @type GET
@@ -109,7 +108,7 @@ users.get("/user/:id", async (req, res) => {
       firstName: foundUser.firstName,
       lastName: foundUser.lastName,
       userName: foundUser.userName,
-      courses: foundUser.courses
+      courses: foundUser.courses,
     };
 
     //Send the information
@@ -127,4 +126,4 @@ const encryptPassword = async (password) => {
   return hashedPassword;
 };
 
-export default users;
+module.exports = users;

@@ -1,9 +1,9 @@
-import express  from "express";
-const courses  = express.Router();
+const express = require("express");
+const courses = express.Router();
 
 //Models
-import userModels from "../models/User.js";
-import courseModel from "../models/Course.js";
+const userModels = require("../models/User.js");
+const courseModel = require("../models/Course.js");
 
 courses.get("/", async (req, res) => {
   res.send("Hello");
@@ -63,7 +63,7 @@ courses.get("/course?", async (req, res) => {
     let foundCourse = await (
       await courseModel.findOne({ title: { $regex: req.query.title } })
     ).populate("instructor");
-    
+
     res.send(foundCourse);
   } catch (error) {
     if (error) res.send(error);
@@ -84,4 +84,4 @@ courses.delete("/instructor/:id/delete/:course_id", async (req, res) => {});
  */
 courses.put("/instructor/:id/course/:course_id/update", async (req, res) => {});
 
-export default courses
+module.exports = courses;
