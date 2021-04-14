@@ -1,7 +1,10 @@
 import userModel from "../models/User.js";
 import bcrypt from "bcrypt";
 import mongoose from "mongoose";
+<<<<<<< Updated upstream
 dotenv.config();
+=======
+>>>>>>> Stashed changes
 
 describe("User", () => {
   beforeAll(async () => {
