@@ -1,7 +1,7 @@
-const userModel = require("../Models/User");
-const bcrypt = require("bcrypt");
-const mongoose = require("mongoose");
-require("dotenv").config();
+imprort userModel from "../Models/User";
+imprort bcrypt from "bcrypt";
+imprort mongoose from "mongoose";
+dotenv.config();
 
 describe("User", () => {
   beforeAll(async () => {
