@@ -1,6 +1,6 @@
-imprort userModel from "../models/User.js";
-imprort bcrypt from "bcrypt";
-imprort mongoose from "mongoose";
+import userModel from "../models/User.js";
+import bcrypt from "bcrypt";
+import mongoose from "mongoose";
 dotenv.config();
 
 describe("User", () => {
