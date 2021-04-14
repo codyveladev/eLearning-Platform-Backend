@@ -2,8 +2,8 @@ const express = require("express");
 const courses = express.Router();
 
 //Models
-const userModels = require("../models/User.js");
-const courseModel = require("../models/Course.js");
+const userModels = require("../models/User");
+const courseModel = require("../models/Course");
 
 courses.get("/", async (req, res) => {
   res.send("Hello");

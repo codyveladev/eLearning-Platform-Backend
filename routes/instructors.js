@@ -3,7 +3,7 @@ const instructors = express.Router();
 const bcrypt = require("bcrypt");
 
 //Models
-const userModels = require("../models/User.js");
+const userModels = require("../models/User");
 
 /**
  * @type POST

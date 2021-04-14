@@ -1,6 +1,6 @@
 const express = require("express");
 const quizzes = express.Router();
-const quizModel = require("../models/Quiz.js");
+const quizModel = require("../models/Quiz");
 /**
  * May not need this file
  * This file is currently used for development

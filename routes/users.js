@@ -2,7 +2,7 @@ const express = require("express");
 const users = express.Router();
 const bcrypt = require("bcrypt");
 //Models
-const userModels = require("../models/User.js");
+const userModels = require("../models/User");
 
 /**
  * @type GET
