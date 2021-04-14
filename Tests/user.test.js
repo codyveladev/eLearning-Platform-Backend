@@ -1,4 +1,4 @@
-imprort userModel from "../Models/User";
+imprort userModel from "../models/User.js";
 imprort bcrypt from "bcrypt";
 imprort mongoose from "mongoose";
 dotenv.config();
