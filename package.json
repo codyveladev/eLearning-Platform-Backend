@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Backend for eLearning Platform",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "jest",
     "dev": "nodemon index.js",
@@ -20,6 +21,7 @@
   "homepage": "https://github.com/codyveladev/eLearning-Platform-Backend#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "colors": "^1.4.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",

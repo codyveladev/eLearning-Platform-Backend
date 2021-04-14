@@ -1,6 +1,6 @@
-const express = require("express");
+import express from "express";
 const quizzes = express.Router();
-const quizModel = require("../Models/Quiz");
+import quizModel from "../models/Quiz.js";
 /**
  * May not need this file
  * This file is currently used for development
@@ -48,4 +48,4 @@ quizzes.post("/create", async (req, res) => {
   }
 });
 
-module.exports = quizzes;
+export default quizzes;

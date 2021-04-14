@@ -1,49 +1,29 @@
-const express = require("express");
-const app = express();
-const mongoose = require("mongoose");
+import express from "express";
+import dotenv from "dotenv";
+import colors from "colors";
+import connectDB from "./config/db.js";
 
 //For the connect key
-require("dotenv").config();
+dotenv.config();
 //Allow cross orgin requests
-const cors = require("cors");
+import cors from "cors";
+const app = express();
 app.use(cors());
 
 //Allow for express to use JSON
 app.use(express.json());
 
 //Routes
-const users = require("./Routes/users");
-const courses = require("./Routes/courses");
-const quizzes = require("./Routes/quizzes");
-const instructors = require("./Routes/instructors");
+import users from "./routes/users.js";
+import courses from "./routes/courses.js";
+import quizzes from "./routes/quizzes.js";
+import instructors from "./routes/instructors.js";
 
 //Port that will be started on.
 const PORT = 8080;
 
-//Connect to mongodb
-let intializeConnection = async () => {
-  try {
-    //Creating a new mongoose promise for database
-    let database = (mongoose.Promise = global.Promise);
-    await mongoose.connect(process.env.MONGO_CONNECT_KEY, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true,
-    });
-
-    //Check if the connection was successful and display message.
-    if (database) {
-      console.log("Database Status: Connected");
-    }
-  } catch (error) {
-    if (error) {
-      console.log(error);
-    }
-  }
-};
-
 //Connect to database on start
-intializeConnection().then(() => {
+connectDB().then(() => {
   //Include the routes
   app.use("/users", users);
   app.use("/courses", courses);

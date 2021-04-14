@@ -1,10 +1,9 @@
-const express = require("express");
-const courses = express.Router();
+import express  from "express";
+const courses  = express.Router();
 
 //Models
-const userModels = require("../Models/User");
-const courseModel = require("../Models/Course");
-const { response } = require("express");
+import userModels from "../models/User.js";
+import courseModel from "../models/Course.js";
 
 courses.get("/", async (req, res) => {
   res.send("Hello");
@@ -85,4 +84,4 @@ courses.delete("/instructor/:id/delete/:course_id", async (req, res) => {});
  */
 courses.put("/instructor/:id/course/:course_id/update", async (req, res) => {});
 
-module.exports = courses;
+export default courses
