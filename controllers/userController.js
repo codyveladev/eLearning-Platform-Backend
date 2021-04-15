@@ -1,4 +1,5 @@
 const User = require("../models/User");
+const generateToken = require("../utils/generateToken");
 
 /**
  * @desc  Returns all users in the database
@@ -71,21 +72,19 @@ const loginUser = async (req, res) => {
   try {
     const foundUser = await User.findOne({ userName: userInfo.userName });
 
-    if (!foundUser) {
-      res.status(404).send("User not found!");
-      return;
+    if (foundUser && (await foundUser.matchPassword(userInfo.password))) {
+      res.json({
+        _id: foundUser._id,
+        email: foundUser.email,
+        userName: foundUser.userName,
+        firstName: foundUser.firstName,
+        lastName: foundUser.lastName,
+        isInstructor: foundUser.isInstructor,
+        token: generateToken(foundUser._id),
+      });
     }
-
-    let doesMatch = await foundUser.matchPassword(userInfo.password);
-
-    if (!doesMatch) {
-      res.send("Password Does Not Match...");
-      return;
-    }
-
-    res.send("Login Success!");
   } catch (e) {
-    if (e) res.send(e);
+    if (e) res.status(401).send("Invalid username or password");
   }
 };
 module.exports.loginUser = loginUser;
