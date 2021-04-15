@@ -35,6 +35,6 @@ connectDB().then(() => {
   });
 
   app.listen(PORT, () => {
-    console.log(`Development server started on PORT ${PORT}`);
+    console.log(`Development server started on PORT ${PORT}`.yellow.bold);
   });
 });
