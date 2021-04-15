@@ -88,9 +88,13 @@ const loginUser = async (req, res) => {
     if (e) res.send(e);
   }
 };
-
 module.exports.loginUser = loginUser;
 
+/**
+ * @desc  Get user by ID
+ * @route POST /users/user/:id
+ * @access Public - For now
+ */
 const getUserById = async (req, res) => {
   //Get the user id from request
   let userId = req.params.id;
@@ -99,15 +103,13 @@ const getUserById = async (req, res) => {
     //Find the user in the database given the ID
     let foundUser = await User.findById(userId).select("-password");
 
-    if (!foundUser) {
-      res.status(404).send("User not found");
-    }
-
     //Send the information
     res.send(foundUser);
   } catch (e) {
-    if (e) res.status(500).send(e);
+    if (e) {
+      res.status(404).send("User not found");
+      return;
+    }
   }
 };
-
 module.exports.getUserById = getUserById;
