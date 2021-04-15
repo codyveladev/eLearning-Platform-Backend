@@ -2,10 +2,10 @@ const express = require("express");
 const users = express.Router();
 
 //Functions from Controller
-const registerUser = require("../controllers/userControllers").registerUser;
-const loginUser = require("../controllers/userControllers").loginUser;
-const getAllUsers = require("../controllers/userControllers").getAllUsers;
-const getUserById = require("../controllers/userControllers").getUserById;
+const registerUser = require("../controllers/userController").registerUser;
+const loginUser = require("../controllers/userController").loginUser;
+const getAllUsers = require("../controllers/userController").getAllUsers;
+const getUserById = require("../controllers/userController").getUserById;
 
 //Register User
 users.route("/register").post(registerUser);
