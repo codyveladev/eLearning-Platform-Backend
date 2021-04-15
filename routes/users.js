@@ -1,6 +1,9 @@
 const express = require("express");
 const users = express.Router();
 
+//Middleware
+const protect = require("../middleware/authMiddleware").protect;
+
 //Functions from Controller
 const registerUser = require("../controllers/userController").registerUser;
 const loginUser = require("../controllers/userController").loginUser;
@@ -17,6 +20,6 @@ users.route("/login").post(loginUser);
 users.route("/all").get(getAllUsers);
 
 //Get User by Id
-users.route("/user/:id").get(getUserById);
+users.route("/user/:id").get(protect, getUserById);
 
 module.exports = users;
