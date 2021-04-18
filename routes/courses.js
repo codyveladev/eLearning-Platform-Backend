@@ -1,9 +1,16 @@
 const express = require("express");
 const courses = express.Router();
 
+//Auth Middleware
+const protect = require("../middleware/authMiddleware");
+
 //Models
 const userModels = require("../models/User");
 const courseModel = require("../models/Course");
+
+//Functions from Controller
+const getAllCourses = require('../controllers/courseController').getAllCourses
+
 
 courses.get("/", async (req, res) => {
   res.send("Hello");
@@ -11,10 +18,10 @@ courses.get("/", async (req, res) => {
 
 /**
  * @type POST
- * @route /courses/instructor/:id/upload
+ * @route /courses/instructor/:id/create
  * @desc create a new course for a specific instructior
  */
-courses.post("/instructor/:id/upload", async (req, res) => {
+courses.post("/instructor/:id/create", async (req, res) => {
   let courseInfo = req.body;
   let creator = req.params.id;
 
@@ -39,19 +46,8 @@ courses.post("/instructor/:id/upload", async (req, res) => {
   }
 });
 
-/**
- * @type GET
- * @route /courses/all
- * @desc return all courses in the database.
- */
-courses.get("/all", async (req, res) => {
-  try {
-    let allCourses = await courseModel.find().populate("instructor");
-    res.send(allCourses);
-  } catch (error) {
-    if (error) console.log(error);
-  }
-});
+//Get All Courses
+courses.route("/all").get(protect, getAllCourses); 
 
 /**
  * @type GET

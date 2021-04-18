@@ -2,7 +2,7 @@ const express = require("express");
 const users = express.Router();
 
 //Middleware
-const protect = require("../middleware/authMiddleware").protect;
+const protect = require("../middleware/authMiddleware")
 
 //Functions from Controller
 const registerUser = require("../controllers/userController").registerUser;

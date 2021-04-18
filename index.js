@@ -25,10 +25,10 @@ const PORT = 8080;
 //Connect to database on start
 connectDB().then(() => {
   //Include the routes
-  app.use("/users", users);
-  app.use("/courses", courses);
-  app.use("/quizzes", quizzes);
-  app.use("/instructors", instructors);
+  app.use("/api/users", users);
+  app.use("/api/courses", courses);
+  app.use("/api/quizzes", quizzes);
+  app.use("/api/instructors", instructors);
 
   app.get("/", (req, res) => {
     res.send("hello world");
