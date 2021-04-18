@@ -10,11 +10,14 @@ const courseModel = require("../models/Course");
 
 //Functions from Controller
 const getAllCourses = require('../controllers/courseController').getAllCourses
+const getCourseById = require('../controllers/courseController').getCourseById
 
 
-courses.get("/", async (req, res) => {
-  res.send("Hello");
-});
+//Get All Courses
+courses.route("/all").get(protect, getAllCourses); 
+
+//Get course by ID
+courses.route("/course/:id").get(protect, getCourseById); 
 
 /**
  * @type POST
@@ -45,9 +48,6 @@ courses.post("/instructor/:id/create", async (req, res) => {
     }
   }
 });
-
-//Get All Courses
-courses.route("/all").get(protect, getAllCourses); 
 
 /**
  * @type GET
