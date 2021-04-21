@@ -8,7 +8,7 @@ const generateToken = require("../utils/generateToken");
  */
 const getAllUsers = async (req, res) => {
   try {
-    let users = await User.find();
+    let users = await User.find()
     res.send(users);
   } catch (e) {
     if (e) {
@@ -29,14 +29,14 @@ const registerUser = async (req, res) => {
   newUserInfo.isInstructor = false;
 
   //if username is taken 
-  if (checkIfUsernameExists(newUserInfo.userName)) {
+  if (await checkIfUsernameExists(newUserInfo.userName)) {
     res.status(409).send("Username already exists...");
     console.log("Username already exists...");
     return;
   }
 
   //if email is taken
-  if (checkIfEmailExists(newUserInfo.email)) {
+  if (await checkIfEmailExists(newUserInfo.email)) {
     res.status(409).send("Email already in use...");
     console.log("Email already in use...");
     return;

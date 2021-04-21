@@ -9,22 +9,17 @@ const userModels = require("../models/User");
 const courseModel = require("../models/Course");
 
 //Functions from Controller
-const getAllCourses = require('../controllers/courseController').getAllCourses
-const getCourseById = require('../controllers/courseController').getCourseById
-const createCourse = require('../controllers/courseController').createCourse
-
+const getAllCourses = require("../controllers/courseController").getAllCourses;
+const getCourseById = require("../controllers/courseController").getCourseById;
+const createCourse = require("../controllers/courseController").createCourse;
 
 //Get All Courses
-courses.route("/").get(protect, getAllCourses); 
+courses.route("/").get(protect, getAllCourses);
 
 //Get course by ID
-courses.route("/course/:id").get(protect, getCourseById); 
+courses.route("/course/:id").get(protect, getCourseById);
 
-/**
- * @type POST
- * @route /courses/instructor/:id/create
- * @desc create a new course for a specific instructior
- */
+//Create a course
 courses.route("/upload").post(protect, createCourse);
 
 /**

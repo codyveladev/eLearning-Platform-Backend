@@ -49,15 +49,14 @@ const createCourse = async (req, res) => {
   //If we dont have an instructor send error
   if (!user.isInstructor) {
     res.status(401).send("NOT AUTHORIZED");
-  
   }
   //Create the instructor
   courseInfo.instructor = user._id;
 
   try {
-    const createdCourse = await courseModel.create(courseInfo);
-    foundInstructor.courses.push(createdCourse._id);
-    foundInstructor.save();
+    const createdCourse = await Course.create(courseInfo);
+    user.courses.push(createdCourse._id);
+    await user.save();
     res.send(`Course ${createdCourse.title} Successfully Created!`);
   } catch (error) {
     if (error) res.send(error);

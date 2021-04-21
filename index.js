@@ -17,7 +17,6 @@ app.use(express.json());
 const users = require("./routes/users");
 const courses = require("./routes/courses");
 const quizzes = require("./routes/quizzes");
-const instructors = require("./routes/instructors");
 
 //Port that will be started on.
 const PORT = 8080;
