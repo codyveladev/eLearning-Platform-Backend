@@ -11,10 +11,11 @@ const courseModel = require("../models/Course");
 //Functions from Controller
 const getAllCourses = require('../controllers/courseController').getAllCourses
 const getCourseById = require('../controllers/courseController').getCourseById
+const createCourse = require('../controllers/courseController').createCourse
 
 
 //Get All Courses
-courses.route("/all").get(protect, getAllCourses); 
+courses.route("/").get(protect, getAllCourses); 
 
 //Get course by ID
 courses.route("/course/:id").get(protect, getCourseById); 
@@ -24,30 +25,7 @@ courses.route("/course/:id").get(protect, getCourseById);
  * @route /courses/instructor/:id/create
  * @desc create a new course for a specific instructior
  */
-courses.post("/instructor/:id/create", async (req, res) => {
-  let courseInfo = req.body;
-  let creator = req.params.id;
-
-  try {
-    const foundInstructor = await userModels.findOne({ _id: creator });
-    console.log(foundInstructor);
-    if (foundInstructor && foundInstructor.isInstructor) {
-      courseInfo.instructor = foundInstructor._id;
-    }
-    try {
-      const createdCourse = await courseModel.create(courseInfo);
-      foundInstructor.courses.push(createdCourse);
-      foundInstructor.save();
-      res.send(`Course ${createdCourse.title} Successfully Created!`);
-    } catch (error) {
-      if (error) res.send(error);
-    }
-  } catch (error) {
-    if (error) {
-      res.status(404).send("User not found!");
-    }
-  }
-});
+courses.route("/upload").post(protect, createCourse);
 
 /**
  * @type GET
