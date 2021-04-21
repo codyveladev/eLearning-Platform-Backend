@@ -1,57 +1,26 @@
 const express = require("express");
 const courses = express.Router();
 
+//Auth Middleware
+const protect = require("../middleware/authMiddleware");
+
 //Models
 const userModels = require("../models/User");
 const courseModel = require("../models/Course");
 
-courses.get("/", async (req, res) => {
-  res.send("Hello");
-});
+//Functions from Controller
+const getAllCourses = require("../controllers/courseController").getAllCourses;
+const getCourseById = require("../controllers/courseController").getCourseById;
+const createCourse = require("../controllers/courseController").createCourse;
 
-/**
- * @type POST
- * @route /courses/instructor/:id/upload
- * @desc create a new course for a specific instructior
- */
-courses.post("/instructor/:id/upload", async (req, res) => {
-  let courseInfo = req.body;
-  let creator = req.params.id;
+//Get All Courses
+courses.route("/").get(protect, getAllCourses);
 
-  try {
-    const foundInstructor = await userModels.findOne({ _id: creator });
-    console.log(foundInstructor);
-    if (foundInstructor && foundInstructor.isInstructor) {
-      courseInfo.instructor = foundInstructor._id;
-    }
-    try {
-      const createdCourse = await courseModel.create(courseInfo);
-      foundInstructor.courses.push(createdCourse);
-      foundInstructor.save();
-      res.send(`Course ${createdCourse.title} Successfully Created!`);
-    } catch (error) {
-      if (error) res.send(error);
-    }
-  } catch (error) {
-    if (error) {
-      res.status(404).send("User not found!");
-    }
-  }
-});
+//Get course by ID
+courses.route("/course/:id").get(protect, getCourseById);
 
-/**
- * @type GET
- * @route /courses/all
- * @desc return all courses in the database.
- */
-courses.get("/all", async (req, res) => {
-  try {
-    let allCourses = await courseModel.find().populate("instructor");
-    res.send(allCourses);
-  } catch (error) {
-    if (error) console.log(error);
-  }
-});
+//Create a course
+courses.route("/upload").post(protect, createCourse);
 
 /**
  * @type GET

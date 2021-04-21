@@ -17,7 +17,6 @@ app.use(express.json());
 const users = require("./routes/users");
 const courses = require("./routes/courses");
 const quizzes = require("./routes/quizzes");
-const instructors = require("./routes/instructors");
 
 //Port that will be started on.
 const PORT = 8080;
@@ -25,10 +24,9 @@ const PORT = 8080;
 //Connect to database on start
 connectDB().then(() => {
   //Include the routes
-  app.use("/users", users);
-  app.use("/courses", courses);
-  app.use("/quizzes", quizzes);
-  app.use("/instructors", instructors);
+  app.use("/api/users", users);
+  app.use("/api/courses", courses);
+  app.use("/api/quizzes", quizzes);
 
   app.get("/", (req, res) => {
     res.send("hello world");

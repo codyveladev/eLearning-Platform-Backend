@@ -8,7 +8,7 @@ const generateToken = require("../utils/generateToken");
  */
 const getAllUsers = async (req, res) => {
   try {
-    let users = await User.find();
+    let users = await User.find()
     res.send(users);
   } catch (e) {
     if (e) {
@@ -28,31 +28,25 @@ const registerUser = async (req, res) => {
   const newUserInfo = req.body;
   newUserInfo.isInstructor = false;
 
-  //Check if the username already exists
-  let foundByUserName = await User.findOne({
-    userName: newUserInfo.userName,
-  });
-  //Handler error
-  if (foundByUserName) {
+  //if username is taken 
+  if (await checkIfUsernameExists(newUserInfo.userName)) {
     res.status(409).send("Username already exists...");
     console.log("Username already exists...");
     return;
   }
 
-  //check if the email already exists
-  let foundByEmail = await User.findOne({ email: newUserInfo.email });
-  //Handle error
-  if (foundByEmail) {
+  //if email is taken
+  if (await checkIfEmailExists(newUserInfo.email)) {
     res.status(409).send("Email already in use...");
     console.log("Email already in use...");
     return;
   }
+
   //Register user to database
   try {
-    const userToStore = await User.create(newUserInfo);
-    userToStore.save();
-    if (userToStore) {
-      res.send(`User with ID ${userToStore._id} has been created!`);
+    const userCreated = await addUserToDB(newUserInfo);
+    if (userCreated) {
+      res.send(`User with ID ${userCreated} has been created!`);
     }
   } catch (error) {
     res.send(error);
@@ -101,7 +95,6 @@ const getUserById = async (req, res) => {
   try {
     //Find the user in the database given the ID
     let foundUser = await User.findById(userId).select("-password");
-
     //Send the information
     res.send(foundUser);
   } catch (e) {
@@ -112,3 +105,55 @@ const getUserById = async (req, res) => {
   }
 };
 module.exports.getUserById = getUserById;
+
+
+const registerInstructor = async(req, res) => {
+  //Get the user info from the request body
+  const newUserInfo = req.body;
+  newUserInfo.isInstructor = true;
+
+  //if username is taken
+  if (await checkIfUsernameExists(newUserInfo.userName)) {
+    res.status(409).send("Username already exists...");
+    console.log("Username already exists...");
+    return;
+  }
+
+  //if email is taken
+  if (await checkIfEmailExists(newUserInfo.email)) {
+    res.status(409).send("Email already in use...");
+    console.log("Email already in use...");
+    return;
+  }
+
+  //Register user to database
+  try {
+    const userCreated = await addUserToDB(newUserInfo);
+    if (userCreated) {
+      res.send(`User with ID ${userCreated} has been created!`);
+    }
+  } catch (error) {
+    res.send(error);
+    console.log(error);
+  }
+}
+
+module.exports.registerInstructor = registerInstructor;
+
+
+//********* HELPER FUNCTIONS  ***********/
+const addUserToDB = async (user) => {
+  const userToStore = await User.create(user);
+  await userToStore.save();
+  return userToStore._id;
+};
+
+const checkIfEmailExists = async (email) => {
+  //check if the email already exists
+  return await User.findOne({ email: email });
+};
+const checkIfUsernameExists = async (username) => {
+  //check if the Username already exists
+  return await User.findOne({ userName: username });
+};
+//********* END HELPER FUNCTIONS  ***********/

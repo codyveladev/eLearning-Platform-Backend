@@ -7,6 +7,7 @@ const protect = async (req, res, next) => {
   if (!token) {
     console.log("token not found");
     res.status(401).send("NOT AUTHORIZED");
+    return;
   }
 
   if (token && token.startsWith("Bearer")) {
@@ -22,4 +23,4 @@ const protect = async (req, res, next) => {
   }
 };
 
-module.exports.protect = protect;
+module.exports = protect;
