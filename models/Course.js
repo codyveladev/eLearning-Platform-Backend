@@ -1,7 +1,7 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
 const courseSchema = new mongoose.Schema({
-  title: String,
+  title: { type: String, index: true },
   video_link: String,
   description: String,
   instructor: {
@@ -11,4 +11,6 @@ const courseSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model('Course', courseSchema);
+courseSchema.index({title: "text"})
+
+module.exports = mongoose.model("Course", courseSchema);

@@ -1,4 +1,6 @@
 const Course = require("../models/Course");
+const User = require("../models/User");
+const { search } = require("../routes/courses");
 
 /**
  * @desc Return all courses in the database.
@@ -6,10 +8,6 @@ const Course = require("../models/Course");
  * @access Private
  */
 const getAllCourses = async (req, res) => {
-  if (!req.user.isInstructor) {
-    res.status(401).send("NOT AUTHORIZED");
-    return;
-  }
   try {
     let allCourses = await Course.find().populate("instructor");
     res.send(allCourses);
@@ -63,3 +61,28 @@ const createCourse = async (req, res) => {
   }
 };
 module.exports.createCourse = createCourse;
+
+/**
+ * @desc returns courses matching a title
+ * @route /api/courses/course?title
+ * @access Private
+ */
+const findCourseByTitle = async (req, res) => {
+  let searchTerm = req.query.title;
+  console.log(searchTerm);
+
+  try {
+    let foundItems = await Course.find({
+      $text: { $search: searchTerm, $caseSensitive: false },
+    }).populate("Quiz");
+    
+    console.log(foundItems);
+    res.send(foundItems);
+  } catch (error) {
+    if (error) {
+      console.log(error);
+      res.status(404).send(error);
+    }
+  }
+};
+module.exports.findCourseByTitle = findCourseByTitle;

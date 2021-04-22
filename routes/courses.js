@@ -12,6 +12,7 @@ const courseModel = require("../models/Course");
 const getAllCourses = require("../controllers/courseController").getAllCourses;
 const getCourseById = require("../controllers/courseController").getCourseById;
 const createCourse = require("../controllers/courseController").createCourse;
+const findCourseByTitle = require("../controllers/courseController").findCourseByTitle;
 
 //Get All Courses
 courses.route("/").get(protect, getAllCourses);
@@ -22,16 +23,19 @@ courses.route("/course/:id").get(protect, getCourseById);
 //Create a course
 courses.route("/upload").post(protect, createCourse);
 
+//Search for a course
+courses.route("/course?").get(protect, findCourseByTitle);
+
 /**
  * @type GET
- * @route /courses/course/:id
+ * @route /courses/course?title=
  * @desc finds a course given an id in the database.
  */
-courses.get("/course?", async (req, res) => {
+courses.get("/course?title=", async (req, res) => {
   try {
-    let foundCourse = await (
-      await courseModel.findOne({ title: { $regex: req.query.title } })
-    ).populate("instructor");
+    let foundCourse = await courseModel
+      .findMany({ title: { $regex: req.query.title } })
+      .populate("instructor");
 
     res.send(foundCourse);
   } catch (error) {
