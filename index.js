@@ -5,6 +5,7 @@ const connectDB = require("./config/db");
 
 //For the connect key
 dotenv.config();
+
 //Allow cross orgin requests
 const cors = require("cors");
 const app = express();

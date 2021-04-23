@@ -13,6 +13,7 @@ const getAllCourses = require("../controllers/courseController").getAllCourses;
 const getCourseById = require("../controllers/courseController").getCourseById;
 const createCourse = require("../controllers/courseController").createCourse;
 const findCourseByTitle = require("../controllers/courseController").findCourseByTitle;
+const updateCourseInfo = require("../controllers/courseController").updateCourseInfo;
 
 //Get All Courses
 courses.route("/").get(protect, getAllCourses);
@@ -25,6 +26,9 @@ courses.route("/upload").post(protect, createCourse);
 
 //Search for a course
 courses.route("/course?").get(protect, findCourseByTitle);
+
+//Update a course info
+courses.route("/course/:id/update").put(protect, updateCourseInfo);
 
 /**
  * @type GET
@@ -50,11 +54,5 @@ courses.get("/course?title=", async (req, res) => {
  */
 courses.delete("/instructor/:id/delete/:course_id", async (req, res) => {});
 
-/**
- * @type PUT
- * @route /courses/instructor/:id/course/:course_id/update
- * @desc update a specific course by a given instructor
- */
-courses.put("/instructor/:id/course/:course_id/update", async (req, res) => {});
 
 module.exports = courses;
