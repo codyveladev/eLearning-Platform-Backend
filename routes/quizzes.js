@@ -28,6 +28,9 @@ quizzes.get("/show-all", async (req, res) => {
 quizzes.post("/create", async (req, res) => {
   let quiz = req.body;
 
+  if(!req.user.isInstructor){
+    res.status(401).send("NOT AUTHORIZED")
+  }
   //Test to see if the formatting is nice, doesnt do anyting but
   //Printing it pretty
   for (let i = 0; i < quiz.questions.length; i++) {

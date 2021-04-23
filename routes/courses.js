@@ -4,14 +4,14 @@ const courses = express.Router();
 //Auth Middleware
 const protect = require("../middleware/authMiddleware");
 
-//Models
-const userModels = require("../models/User");
-const courseModel = require("../models/Course");
 
 //Functions from Controller
 const getAllCourses = require("../controllers/courseController").getAllCourses;
 const getCourseById = require("../controllers/courseController").getCourseById;
 const createCourse = require("../controllers/courseController").createCourse;
+const findCourseByTitle = require("../controllers/courseController").findCourseByTitle;
+const updateCourseInfo = require("../controllers/courseController").updateCourseInfo;
+const deleteCourse = require("../controllers/courseController").deleteCourse;
 
 //Get All Courses
 courses.route("/").get(protect, getAllCourses);
@@ -22,35 +22,14 @@ courses.route("/course/:id").get(protect, getCourseById);
 //Create a course
 courses.route("/upload").post(protect, createCourse);
 
-/**
- * @type GET
- * @route /courses/course/:id
- * @desc finds a course given an id in the database.
- */
-courses.get("/course?", async (req, res) => {
-  try {
-    let foundCourse = await (
-      await courseModel.findOne({ title: { $regex: req.query.title } })
-    ).populate("instructor");
+//Search for a course
+courses.route("/course?").get(protect, findCourseByTitle);
 
-    res.send(foundCourse);
-  } catch (error) {
-    if (error) res.send(error);
-  }
-});
+//Update a course info
+courses.route("/course/:id/update").put(protect, updateCourseInfo);
 
-/**
- * @type DELETE
- * @route /courses/instructior/:id/delete/:course_id
- * @desc deletes a specific course by a given instructor
- */
-courses.delete("/instructor/:id/delete/:course_id", async (req, res) => {});
+//Delete Course 
+courses.route("/course/:id/delete").delete(protect, deleteCourse);
 
-/**
- * @type PUT
- * @route /courses/instructor/:id/course/:course_id/update
- * @desc update a specific course by a given instructor
- */
-courses.put("/instructor/:id/course/:course_id/update", async (req, res) => {});
 
 module.exports = courses;

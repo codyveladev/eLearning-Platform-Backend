@@ -9,8 +9,7 @@ const registerUser = require("../controllers/userController").registerUser;
 const loginUser = require("../controllers/userController").loginUser;
 const getAllUsers = require("../controllers/userController").getAllUsers;
 const getUserById = require("../controllers/userController").getUserById;
-const registerInstructor = require("../controllers/userController")
-  .registerInstructor;
+const registerInstructor = require("../controllers/userController").registerInstructor;
 
 //Register User
 users.route("/register").post(registerUser);
