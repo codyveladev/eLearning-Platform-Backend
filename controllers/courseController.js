@@ -121,8 +121,8 @@ module.exports.updateCourseInfo = updateCourseInfo;
  * @access Private
  */
 const deleteCourse = async (req, res) => {
-  let courseId = req.params.id;
-  let userId = req.user.id;
+  let courseId = req.params.id; //From URL
+  let userId = req.user.id; //From TOKEN
 
   try {
     let foundUser = await User.findById(userId);

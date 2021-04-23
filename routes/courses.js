@@ -4,9 +4,6 @@ const courses = express.Router();
 //Auth Middleware
 const protect = require("../middleware/authMiddleware");
 
-//Models
-const userModels = require("../models/User");
-const courseModel = require("../models/Course");
 
 //Functions from Controller
 const getAllCourses = require("../controllers/courseController").getAllCourses;
