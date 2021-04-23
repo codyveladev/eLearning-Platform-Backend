@@ -114,3 +114,37 @@ const updateCourseInfo = async (req, res) => {
   }
 };
 module.exports.updateCourseInfo = updateCourseInfo;
+
+/**
+ * @desc Update course info
+ * @route /api/courses/course/:id/delete
+ * @access Private
+ */
+const deleteCourse = async (req, res) => {
+  let courseId = req.params.id;
+  let userId = req.user.id;
+
+  try {
+    let foundUser = await User.findById(userId);
+
+    if (!foundUser.courses.includes(courseId)) {
+      res.status(401).send("ACCESS FORBIDDEN");
+    }
+
+    if (foundUser) {
+      let courseIdx = foundUser.courses.indexOf(courseId);
+      foundUser.courses.splice(courseIdx, 1);
+      foundUser.save();
+    }
+
+    await Course.deleteOne({ _id: courseId });
+
+    res.send("Course deleted! ...");
+  } catch (error) {
+    if (error) {
+      console.log(error);
+      res.send(error);
+    }
+  }
+};
+module.exports.deleteCourse = deleteCourse;
