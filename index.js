@@ -38,8 +38,8 @@ app.use(cors());
 app.use(express.json());
 
 //Routes
-const users = require("./routes/users");
-const courses = require("./routes/courses");
+const users = require("./routes/userRoutes");
+const courses = require("./routes/courseRoutes");
 const quizzes = require("./routes/quizzes");
 
 //Port that will be started on.
