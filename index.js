@@ -3,6 +3,29 @@ const dotenv = require("dotenv");
 const colors = require("colors");
 const connectDB = require("./config/db");
 
+/****** API DOCS CONFIG  **************/
+const swaggerUI = require("swagger-ui-express");
+const swaggerJsDoc = require("swagger-jsdoc");
+
+const options = {
+  definition: {
+    openapi: "3.0.0",
+    info: {
+      title: "eLearning Platform API",
+      version: "1.0.0",
+      description: "API for the eLearning Platform",
+    },
+    servers: [
+      {
+        url: "http://localhost:8080",
+      },
+    ],
+  },
+  apis: ["./routes/*js"],
+};
+
+const specs = swaggerJsDoc(options);
+
 //For the connect key
 dotenv.config();
 
@@ -21,6 +44,8 @@ const quizzes = require("./routes/quizzes");
 
 //Port that will be started on.
 const PORT = 8080;
+
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(specs));
 
 //Connect to database on start
 connectDB().then(() => {

@@ -49,7 +49,7 @@ const registerUser = async (req, res) => {
       res.send(`User with ID ${userCreated} has been created!`);
     }
   } catch (error) {
-    res.send(error);
+    res.status(401).send(error);
     console.log(error);
   }
 };
