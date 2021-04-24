@@ -165,7 +165,7 @@ courses.route("/upload").post(protect, createCourse);
 courses.route("/course?").get(protect, findCourseByTitle);
 /**
  * @swagger
- * /api/course/{id}/update:
+ * /api/courses/course/{id}/update:
  *      put:
  *        summary: Updates a coruse with new information
  *        tags: [Courses]
