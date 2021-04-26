@@ -26,6 +26,8 @@ const options = {
 
 const specs = swaggerJsDoc(options);
 
+/****** END API DOCS CONFIG **************/
+
 //For the connect key
 dotenv.config();
 
