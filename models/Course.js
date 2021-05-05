@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 
 const courseSchema = new mongoose.Schema({
-  title: { type: String, index: true },
-  video_link: String,
-  description: String,
+  title: { type: String, index: true, required: true },
+  video_link: { type: String, required: true },
+  description: { type: String, required: true },
   instructor: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
@@ -11,6 +11,6 @@ const courseSchema = new mongoose.Schema({
   },
 });
 
-courseSchema.index({title: "text"})
+courseSchema.index({ title: "text" });
 
 module.exports = mongoose.model("Course", courseSchema);

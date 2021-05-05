@@ -1,11 +1,10 @@
-const userModel = require("../models/User");
-const bcrypt = require("bcrypt");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
+const userModel = require("../models/User");
 
 dotenv.config();
 
-describe("User", () => {
+describe("User Test Cases: ", () => {
   beforeAll(async () => {
     try {
       //Creating a new mongoose promise for database
@@ -15,19 +14,18 @@ describe("User", () => {
         useUnifiedTopology: true,
         useCreateIndex: true,
       });
-
-      //Check if the connection was successful and display message.
-      if (database) {
-        console.log("Database Status: Connected");
-      }
     } catch (error) {
       if (error) {
         console.log(error);
       }
     }
   });
+  afterAll(async () => {
+    await userModel.deleteOne({ userName: "cvela09" });
+    await mongoose.connection.close();
+  });
 
-  it("Insert one user into the database", async () => {
+  it("Insert One User Into DB", async () => {
     const newUserInfo = {
       firstName: "Cody",
       lastName: "Vela",
@@ -37,30 +35,42 @@ describe("User", () => {
       isInstructor: false,
     };
     try {
-      newUserInfo.password = await encryptPassword(newUserInfo.password);
-
-      const createdUser = new userModel(newUserInfo);
-
+      const createdUser = await userModel.create(newUserInfo);
       expect(createdUser._id).toBeDefined;
       expect(createdUser.firstName).toBe(newUserInfo.firstName);
     } catch (error) {
-      console.log("error in insert one");
+      console.log(error);
     }
   });
   it("Return All Users", async () => {
     let listOfUsers = await userModel.find();
     expect(listOfUsers).toBeDefined();
   });
-  afterAll(async () => {
-    userModel.deleteMany();
-    await mongoose.connection.close();
+  it("Return One By ID", async () => {
+    let idToSearch = "6091dec298473a826c89b8e2";
+
+    try {
+      const userFound = await userModel.findById(idToSearch);
+      expect(userFound).toBeDefined();
+      expect(userFound.userName).toBe("swill");
+      expect(userFound.firstName).toBe("Skylar");
+    } catch (error) {
+      console.log("Error in find one by ID");
+    }
+  });
+  it("Validate Registration Fields: userName", async () => {
+    const invalidUserInfo = {
+      firstName: "Cody",
+      lastName: "Vela",
+      password: "testpassword",
+      isInstructor: false,
+    };
+
+    expect.assertions(1);
+    try {
+      await userModel.create(invalidUserInfo);
+    } catch (error) {
+      expect(error).toBeDefined();
+    }
   });
 });
-
-//Helper Functions
-const encryptPassword = async (password) => {
-  const salt = await bcrypt.genSalt(10);
-  const hashedPassword = await bcrypt.hash(password, salt);
-
-  return hashedPassword;
-};

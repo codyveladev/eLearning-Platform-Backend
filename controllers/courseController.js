@@ -56,7 +56,7 @@ const createCourse = async (req, res) => {
     await user.save();
     res.send(`Course ${createdCourse.title} Successfully Created!`);
   } catch (error) {
-    if (error) res.send(error);
+    if (error) res.status(501).send(error);
   }
 };
 module.exports.createCourse = createCourse;
