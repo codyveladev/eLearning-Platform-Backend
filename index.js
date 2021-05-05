@@ -34,10 +34,13 @@ dotenv.config();
 //Allow cross orgin requests
 const cors = require("cors");
 const app = express();
-app.use(cors());
 
 //Allow for express to use JSON
 app.use(express.json());
+
+app.use(cors());
+
+
 
 //Routes
 const users = require("./routes/userRoutes");
@@ -48,18 +51,17 @@ const quizzes = require("./routes/quizzes");
 const PORT = 8080;
 
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(specs));
+//Include the routes
+app.use("/api/users", users);
+app.use("/api/courses", courses);
+app.use("/api/quizzes", quizzes);
+
+app.get("/", (req, res) => {
+  res.send("hello world");
+});
 
 //Connect to database on start
 connectDB().then(() => {
-  //Include the routes
-  app.use("/api/users", users);
-  app.use("/api/courses", courses);
-  app.use("/api/quizzes", quizzes);
-
-  app.get("/", (req, res) => {
-    res.send("hello world");
-  });
-
   app.listen(PORT, () => {
     console.log(`Development server started on PORT ${PORT}`.yellow.bold);
   });

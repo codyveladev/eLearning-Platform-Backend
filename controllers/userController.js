@@ -66,19 +66,24 @@ const loginUser = async (req, res) => {
   try {
     const foundUser = await User.findOne({ userName: userInfo.userName });
 
-    if (foundUser && (await foundUser.matchPassword(userInfo.password))) {
-      res.json({
+    if (foundUser && await foundUser.matchPassword(userInfo.password)) {
+      res.send({
         _id: foundUser._id,
         email: foundUser.email,
         userName: foundUser.userName,
         firstName: foundUser.firstName,
-        lastName: foundUser.lastName,
         isInstructor: foundUser.isInstructor,
         token: generateToken(foundUser._id),
       });
     }
+    else{
+      res.status(400).send("Invalid Username or Password")
+    }
   } catch (e) {
-    if (e) res.status(401).send("Invalid username or password");
+    if (e) {
+      console.log(e)
+      res.status(500).send(e);
+    }
   }
 };
 module.exports.loginUser = loginUser;
