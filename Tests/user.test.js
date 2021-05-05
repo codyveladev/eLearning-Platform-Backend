@@ -14,11 +14,6 @@ describe("User Test Cases: ", () => {
         useUnifiedTopology: true,
         useCreateIndex: true,
       });
-
-      //Check if the connection was successful and display message.
-      if (database) {
-        console.log("Database Status: Connected");
-      }
     } catch (error) {
       if (error) {
         console.log(error);
