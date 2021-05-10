@@ -8,7 +8,7 @@ const User = require("../models/User");
  */
 const getAllCourses = async (req, res) => {
   try {
-    let allCourses = await Course.find().populate("instructor");
+    let allCourses = await Course.find().populate("instructor").select('-courses');
     res.send(allCourses);
   } catch (error) {
     if (error) console.log(error);
@@ -25,9 +25,10 @@ module.exports.getAllCourses = getAllCourses;
 const getCourseById = async (req, res) => {
   let courseId = req.params.id;
   try {
-    let foundCourse = await Course.findById(courseId).populate("Instructor");
+    let foundCourse = await Course.findById(courseId).populate("quiz")
     res.send(foundCourse);
   } catch (error) {
+    console.log(error)
     res.status(404).send("COURSE NOT FOUND");
   }
 };

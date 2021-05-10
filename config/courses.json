@@ -1,0 +1,339 @@
+{
+    "kind": "youtube#playlistItemListResponse",
+    "etag": "sw837-TuW4JoAHHAidMVPby-0RI",
+    "items": [
+        {
+            "kind": "youtube#playlistItem",
+            "etag": "V6X8z_XC1-dJ3qTShgIGYzBQMUk",
+            "id": "UExNazdnQXZyMnkyM1EzT0VmY0t4LTZIV0Y5OEN4QUxXMy41NkI0NEY2RDEwNTU3Q0M2",
+            "snippet": {
+                "publishedAt": "2021-05-05T19:17:54Z",
+                "channelId": "UCBnSeVz82ZdCnDsFsU8OIag",
+                "title": "HTML Full Course - Build a Website Tutorial",
+                "description": "Learn the basics of HTML5 and web development in this awesome course for beginners.",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/pQN-pnXPaVg/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/pQN-pnXPaVg/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/pQN-pnXPaVg/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    },
+                    "standard": {
+                        "url": "https://i.ytimg.com/vi/pQN-pnXPaVg/sddefault.jpg",
+                        "width": 640,
+                        "height": 480
+                    },
+                    "maxres": {
+                        "url": "https://i.ytimg.com/vi/pQN-pnXPaVg/maxresdefault.jpg",
+                        "width": 1280,
+                        "height": 720
+                    }
+                },
+                "channelTitle": "Cody Vela",
+                "playlistId": "PLMk7gAvr2y23Q3OEfcKx-6HWF98CxALW3",
+                "position": 0,
+                "resourceId": {
+                    "kind": "youtube#video",
+                    "videoId": "pQN-pnXPaVg"
+                },
+                "videoOwnerChannelTitle": "freeCodeCamp.org",
+                "videoOwnerChannelId": "UC8butISFwT-Wl7EV0hUK0BQ"
+            }
+        },
+        {
+            "kind": "youtube#playlistItem",
+            "etag": "pQ1e4jwMA6eLgnmQ0FEe8d1bRxk",
+            "id": "UExNazdnQXZyMnkyM1EzT0VmY0t4LTZIV0Y5OEN4QUxXMy4yODlGNEE0NkRGMEEzMEQy",
+            "snippet": {
+                "publishedAt": "2021-05-05T19:18:10Z",
+                "channelId": "UCBnSeVz82ZdCnDsFsU8OIag",
+                "title": "Learn Python - Full Course for Beginners [Tutorial]",
+                "description": "This course will give you a full introduction into all of the core concepts in python. Follow along with the videos and you'll be a python programmer in no time!",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/rfscVS0vtbw/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/rfscVS0vtbw/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/rfscVS0vtbw/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    },
+                    "standard": {
+                        "url": "https://i.ytimg.com/vi/rfscVS0vtbw/sddefault.jpg",
+                        "width": 640,
+                        "height": 480
+                    },
+                    "maxres": {
+                        "url": "https://i.ytimg.com/vi/rfscVS0vtbw/maxresdefault.jpg",
+                        "width": 1280,
+                        "height": 720
+                    }
+                },
+                "channelTitle": "Cody Vela",
+                "playlistId": "PLMk7gAvr2y23Q3OEfcKx-6HWF98CxALW3",
+                "position": 1,
+                "resourceId": {
+                    "kind": "youtube#video",
+                    "videoId": "rfscVS0vtbw"
+                },
+                "videoOwnerChannelTitle": "freeCodeCamp.org",
+                "videoOwnerChannelId": "UC8butISFwT-Wl7EV0hUK0BQ"
+            }
+        },
+        {
+            "kind": "youtube#playlistItem",
+            "etag": "Bfg_lcT0hDPOetVPwR3H3NeRDw4",
+            "id": "UExNazdnQXZyMnkyM1EzT0VmY0t4LTZIV0Y5OEN4QUxXMy4wMTcyMDhGQUE4NTIzM0Y5",
+            "snippet": {
+                "publishedAt": "2021-05-05T19:18:48Z",
+                "channelId": "UCBnSeVz82ZdCnDsFsU8OIag",
+                "title": "Full React Course 2020 - Learn Fundamentals, Hooks, Context API, React Router, Custom Hooks",
+                "description": "Learn the basics of React in this comprehensive course. You will learn about fundamentals, hooks, context API, react router, custom hooks, and more.React is one of the most popular ways to build user interfaces using JavaScript.",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/4UZrsTqkcW4/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/4UZrsTqkcW4/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/4UZrsTqkcW4/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    },
+                    "standard": {
+                        "url": "https://i.ytimg.com/vi/4UZrsTqkcW4/sddefault.jpg",
+                        "width": 640,
+                        "height": 480
+                    },
+                    "maxres": {
+                        "url": "https://i.ytimg.com/vi/4UZrsTqkcW4/maxresdefault.jpg",
+                        "width": 1280,
+                        "height": 720
+                    }
+                },
+                "channelTitle": "Cody Vela",
+                "playlistId": "PLMk7gAvr2y23Q3OEfcKx-6HWF98CxALW3",
+                "position": 2,
+                "resourceId": {
+                    "kind": "youtube#video",
+                    "videoId": "4UZrsTqkcW4"
+                },
+                "videoOwnerChannelTitle": "freeCodeCamp.org",
+                "videoOwnerChannelId": "UC8butISFwT-Wl7EV0hUK0BQ"
+            }
+        },
+        {
+            "kind": "youtube#playlistItem",
+            "etag": "LgzGk-IMYPP-vLIy6XHMKQeu7OM",
+            "id": "UExNazdnQXZyMnkyM1EzT0VmY0t4LTZIV0Y5OEN4QUxXMy41MjE1MkI0OTQ2QzJGNzNG",
+            "snippet": {
+                "publishedAt": "2021-05-05T19:19:04Z",
+                "channelId": "UCBnSeVz82ZdCnDsFsU8OIag",
+                "title": "Learn JavaScript - Full Course for Beginners",
+                "description": "This complete 134-part JavaScript tutorial for beginners will teach you everything you need to know to get started with the JavaScript programming language.",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/PkZNo7MFNFg/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/PkZNo7MFNFg/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/PkZNo7MFNFg/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    },
+                    "standard": {
+                        "url": "https://i.ytimg.com/vi/PkZNo7MFNFg/sddefault.jpg",
+                        "width": 640,
+                        "height": 480
+                    },
+                    "maxres": {
+                        "url": "https://i.ytimg.com/vi/PkZNo7MFNFg/maxresdefault.jpg",
+                        "width": 1280,
+                        "height": 720
+                    }
+                },
+                "channelTitle": "Cody Vela",
+                "playlistId": "PLMk7gAvr2y23Q3OEfcKx-6HWF98CxALW3",
+                "position": 3,
+                "resourceId": {
+                    "kind": "youtube#video",
+                    "videoId": "PkZNo7MFNFg"
+                },
+                "videoOwnerChannelTitle": "freeCodeCamp.org",
+                "videoOwnerChannelId": "UC8butISFwT-Wl7EV0hUK0BQ"
+            }
+        },
+        {
+            "kind": "youtube#playlistItem",
+            "etag": "WA-iOfqovnN_esdRvKGN_4QtSlI",
+            "id": "UExNazdnQXZyMnkyM1EzT0VmY0t4LTZIV0Y5OEN4QUxXMy4wOTA3OTZBNzVEMTUzOTMy",
+            "snippet": {
+                "publishedAt": "2021-05-05T19:19:19Z",
+                "channelId": "UCBnSeVz82ZdCnDsFsU8OIag",
+                "title": "C++ Tutorial for Beginners - Full Course",
+                "description": "This course will give you a full introduction into all of the core concepts in C++.",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/vLnPwxZdW4Y/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/vLnPwxZdW4Y/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/vLnPwxZdW4Y/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    },
+                    "standard": {
+                        "url": "https://i.ytimg.com/vi/vLnPwxZdW4Y/sddefault.jpg",
+                        "width": 640,
+                        "height": 480
+                    },
+                    "maxres": {
+                        "url": "https://i.ytimg.com/vi/vLnPwxZdW4Y/maxresdefault.jpg",
+                        "width": 1280,
+                        "height": 720
+                    }
+                },
+                "channelTitle": "Cody Vela",
+                "playlistId": "PLMk7gAvr2y23Q3OEfcKx-6HWF98CxALW3",
+                "position": 4,
+                "resourceId": {
+                    "kind": "youtube#video",
+                    "videoId": "vLnPwxZdW4Y"
+                },
+                "videoOwnerChannelTitle": "freeCodeCamp.org",
+                "videoOwnerChannelId": "UC8butISFwT-Wl7EV0hUK0BQ"
+            }
+        }, 
+        {
+            "kind": "youtube#playlistItem",
+            "etag": "aMO0JLRsJ073Tx3xGHX4N5bDN7o",
+            "id": "UExNazdnQXZyMnkyM1EzT0VmY0t4LTZIV0Y5OEN4QUxXMy4xMkVGQjNCMUM1N0RFNEUx",
+            "snippet": {
+                "publishedAt": "2021-05-05T20:03:49Z",
+                "channelId": "UCBnSeVz82ZdCnDsFsU8OIag",
+                "title": "Data Structures - Computer Science Course for Beginners",
+                "description": "Learn all about Data Structures in this lecture-style course. You will learn what Data Structures are, how we measure a Data Structures efficiency, and then hop into talking about 12 of the most common Data Structures which will come up throughout your Computer Science journey. Course created by Steven from NullPointer Exception.",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/zg9ih6SVACc/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/zg9ih6SVACc/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/zg9ih6SVACc/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    },
+                    "standard": {
+                        "url": "https://i.ytimg.com/vi/zg9ih6SVACc/sddefault.jpg",
+                        "width": 640,
+                        "height": 480
+                    },
+                    "maxres": {
+                        "url": "https://i.ytimg.com/vi/zg9ih6SVACc/maxresdefault.jpg",
+                        "width": 1280,
+                        "height": 720
+                    }
+                },
+                "channelTitle": "Cody Vela",
+                "playlistId": "PLMk7gAvr2y23Q3OEfcKx-6HWF98CxALW3",
+                "position": 5,
+                "resourceId": {
+                    "kind": "youtube#video",
+                    "videoId": "zg9ih6SVACc"
+                },
+                "videoOwnerChannelTitle": "freeCodeCamp.org",
+                "videoOwnerChannelId": "UC8butISFwT-Wl7EV0hUK0BQ"
+            }
+        },
+        {
+            "kind": "youtube#playlistItem",
+            "etag": "t2ig6h6_gbgB-2sY9uC-txZES9Y",
+            "id": "UExNazdnQXZyMnkyM1EzT0VmY0t4LTZIV0Y5OEN4QUxXMy41MzJCQjBCNDIyRkJDN0VD",
+            "snippet": {
+                "publishedAt": "2021-05-05T20:04:11Z",
+                "channelId": "UCBnSeVz82ZdCnDsFsU8OIag",
+                "title": "CSS Crash Course For Absolute Beginners",
+                "description": "In this video I will cram as much as possible about CSS. We will be looking at styles, selectors, declarations, etc. We will build a CSS cheat sheet that you can keep as a resource and we will also create a basic website layout. We are using CSS3 but mostly the basics.",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/yfoY53QXEnI/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/yfoY53QXEnI/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/yfoY53QXEnI/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    },
+                    "standard": {
+                        "url": "https://i.ytimg.com/vi/yfoY53QXEnI/sddefault.jpg",
+                        "width": 640,
+                        "height": 480
+                    },
+                    "maxres": {
+                        "url": "https://i.ytimg.com/vi/yfoY53QXEnI/maxresdefault.jpg",
+                        "width": 1280,
+                        "height": 720
+                    }
+                },
+                "channelTitle": "Cody Vela",
+                "playlistId": "PLMk7gAvr2y23Q3OEfcKx-6HWF98CxALW3",
+                "position": 6,
+                "resourceId": {
+                    "kind": "youtube#video",
+                    "videoId": "yfoY53QXEnI"
+                },
+                "videoOwnerChannelTitle": "Traversy Media",
+                "videoOwnerChannelId": "UC29ju8bIPH5as8OGnQzwJyA"
+            }
+        }
+    ],
+    "pageInfo": {
+        "totalResults": 7,
+        "resultsPerPage": 20
+    }
+}

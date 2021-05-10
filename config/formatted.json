@@ -1,0 +1,52 @@
+[
+    {
+        "title": "HTML Full Course - Build a Website Tutorial",
+        "description": "Learn the basics of HTML5 and web development in this awesome course for beginners.",
+        "thumbnail": "https://i.ytimg.com/vi/pQN-pnXPaVg/default.jpg",
+        "video_link": "https://www.youtube.com/embed/pQN-pnXPaVg",
+        "instructor": "6092fd4fae272f37011cc421",
+        "quiz": "6098503c096f979fc4fd4018"
+    },
+    {
+        "title": "Learn Python - Full Course for Beginners [Tutorial]",
+        "description": "This course will give you a full introduction into all of the core concepts in python. Follow along with the videos and you'll be a python programmer in no time!",
+        "thumbnail": "https://i.ytimg.com/vi/rfscVS0vtbw/default.jpg",
+        "video_link": "https://www.youtube.com/embed/rfscVS0vtbw",
+        "instructor": "6092fd4fae272f37011cc421"
+    },
+    {
+        "title": "Full React Course 2020 - Learn Fundamentals, Hooks, Context API, React Router, Custom Hooks",
+        "description": "Learn the basics of React in this comprehensive course. You will learn about fundamentals, hooks, context API, react router, custom hooks, and more.React is one of the most popular ways to build user interfaces using JavaScript.",
+        "thumbnail": "https://i.ytimg.com/vi/4UZrsTqkcW4/default.jpg",
+        "video_link": "https://www.youtube.com/embed/4UZrsTqkcW4",
+        "instructor": "6092fd4fae272f37011cc421"
+    },
+    {
+        "title": "Learn JavaScript - Full Course for Beginners",
+        "description": "This complete 134-part JavaScript tutorial for beginners will teach you everything you need to know to get started with the JavaScript programming language.",
+        "thumbnail": "https://i.ytimg.com/vi/PkZNo7MFNFg/default.jpg",
+        "video_link": "https://www.youtube.com/embed/PkZNo7MFNFg",
+        "instructor": "6092fd4fae272f37011cc421"
+    },
+    {
+        "title": "C++ Tutorial for Beginners - Full Course",
+        "description": "This course will give you a full introduction into all of the core concepts in C++.",
+        "thumbnail": "https://i.ytimg.com/vi/vLnPwxZdW4Y/default.jpg",
+        "video_link": "https://www.youtube.com/embed/vLnPwxZdW4Y",
+        "instructor": "6092fd4fae272f37011cc421"
+    },
+    {
+        "title": "Data Structures - Computer Science Course for Beginners",
+        "description": "Learn all about Data Structures in this lecture-style course. You will learn what Data Structures are, how we measure a Data Structures efficiency, and then hop into talking about 12 of the most common Data Structures which will come up throughout your Computer Science journey. Course created by Steven from NullPointer Exception.",
+        "thumbnail": "https://i.ytimg.com/vi/zg9ih6SVACc/default.jpg",
+        "video_link": "https://www.youtube.com/embed/zg9ih6SVACc",
+        "instructor": "6092fd4fae272f37011cc421"
+    },
+    {
+        "title": "CSS Crash Course For Absolute Beginners",
+        "description": "In this video I will cram as much as possible about CSS. We will be looking at styles, selectors, declarations, etc. We will build a CSS cheat sheet that you can keep as a resource and we will also create a basic website layout. We are using CSS3 but mostly the basics.",
+        "thumbnail": "https://i.ytimg.com/vi/yfoY53QXEnI/default.jpg",
+        "video_link": "https://www.youtube.com/embed/yfoY53QXEnI",
+        "instructor": "6092fd7eae272f37011cc422"
+    }
+]

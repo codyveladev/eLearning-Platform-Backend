@@ -1,6 +1,8 @@
 const express = require("express");
+const calculateScore  = require("../controllers/quizController").calculateScore;
 const quizzes = express.Router();
 const quizModel = require("../models/Quiz");
+const protect = require("../middleware/authMiddleware")
 /**
  * May not need this file
  * This file is currently used for development
@@ -25,12 +27,11 @@ quizzes.get("/show-all", async (req, res) => {
   res.send(quiz);
 });
 
-quizzes.post("/create", async (req, res) => {
-  let quiz = req.body;
+quizzes.route('/score').post(protect, calculateScore)
 
-  if(!req.user.isInstructor){
-    res.status(401).send("NOT AUTHORIZED")
-  }
+quizzes.post("/create", async (req, res) => {
+  let quiz = req.data;
+
   //Test to see if the formatting is nice, doesnt do anyting but
   //Printing it pretty
   for (let i = 0; i < quiz.questions.length; i++) {
@@ -52,3 +53,5 @@ quizzes.post("/create", async (req, res) => {
 });
 
 module.exports = quizzes;
+    
+  
