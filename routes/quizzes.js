@@ -30,7 +30,7 @@ quizzes.get("/show-all", async (req, res) => {
 quizzes.route('/score').post(protect, calculateScore)
 
 quizzes.post("/create", async (req, res) => {
-  let quiz = req.data;
+  let quiz = req.body;
 
   //Test to see if the formatting is nice, doesnt do anyting but
   //Printing it pretty
