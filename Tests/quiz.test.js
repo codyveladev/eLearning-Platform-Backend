@@ -41,6 +41,9 @@ describe("Quiz Test Cases: ", () => {
         ["Idk", "Displays text", "Kitchen Gadget", "Not sure"],
       ],
       correctAnswers: ["4", "6", "Displays Text"],
+      thumbnail: 'hello',
+      video_link: 'hello'
+
     };
 
     const createdQuiz = await quizModel.create(testQuiz);

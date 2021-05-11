@@ -25,7 +25,7 @@ describe("Course Test Cases: ", () => {
   });
   afterAll(async () => {
     //Delete the test course
-    let instructor_id = "607f6d03b52c2f2cf4f3fbb1";
+    let instructor_id = "6092fd4fae272f37011cc421";
 
     try {
       const foundUser = await userModel.findById(instructor_id);
@@ -47,6 +47,8 @@ describe("Course Test Cases: ", () => {
       video_link: "http://testing.test.com",
       description: "this is a test course...",
       instructor: "607f6d03b52c2f2cf4f3fbb1",
+      quiz: "6092fd4fae272f37011cc421",
+      thumbnail: "jsjsjs",
     };
 
     const createdCourse = await courseModel.create(testCourse);
@@ -59,7 +61,7 @@ describe("Course Test Cases: ", () => {
     expect(allCourses).toBeDefined;
   });
   it("Return Course By ID", async () => {
-    const courseToSearch = "6081f760138ef2a7584d0510";
+    const courseToSearch = "609852c6ba7d92d7acec26fb";
     const foundCourse = await courseModel.findById(courseToSearch);
     expect(foundCourse).toBeDefined();
     expect(foundCourse.title).toBe(
